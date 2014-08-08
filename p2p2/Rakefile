@@ -1,0 +1,11 @@
+#!/usr/bin/env rake
+require 'rake/testtask'
+Dir.glob('lib/tasks/*.rake').each {|r| import r}
+
+task default: :test
+
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.pattern = "test/**/*_test.rb"
+  t.verbose = true
+end
